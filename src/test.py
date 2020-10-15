@@ -13,7 +13,8 @@ while i>0:
     i = i-1
     print(i)
     print(value)
-    print(getOpposite(value))
+    value = getOpposite(value)
+    print(value)
 
     time.sleep(1)
 
