@@ -46,7 +46,7 @@ api.add_resource(Sbarra, '/sbarra')
 # api.add_resource(PollutionResource, '/pollution')
 # api.add_resource(GasResource, '/gas')
 
-
+print(__name__)
 if __name__ == '__main__':
     print("Starting process...")
 
