@@ -16,12 +16,12 @@ pinPortone = 22
 chip = gpiod.Chip('gpiochip0')
 
 sbarra = chip.get_lines([17])
-sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-scorrevole = chip.get_lines([27])
-scorrevole.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-portone = chip.get_lines([22])
-portone.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-i = 4
+# sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+# scorrevole = chip.get_lines([27])
+# scorrevole.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+# portone = chip.get_lines([22])
+# portone.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+# i = 4
 
 def getOpposite(val):
     if val == 0:
