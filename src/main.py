@@ -6,11 +6,11 @@ pinPortone = 22
 
 chip = gpiod.Chip('gpiochip0')
 
-sbarra = chip.getLines([pinsbarra])
+sbarra = chip.get_lines([pinsbarra])
 sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-scorrevole = chip.getLines([pinScorrevole])
+scorrevole = chip.get_lines([pinScorrevole])
 scorrevole.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-portone = chip.getLines([pinPortone])
+portone = chip.get_lines([pinPortone])
 portone.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
 i = 4
 while i>0:
