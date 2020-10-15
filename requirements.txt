@@ -1,0 +1,4 @@
+libgpiod-utils
+python3-libgpiod
+flask==1.1.1
+flask_restful==0.3.8

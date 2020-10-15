@@ -1,5 +1,13 @@
+import os
+
 import gpiod
 import time
+from flask import Flask
+from flask_restful import Resource, Api
+
+app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
+api = Api(app)
 
 pinSbarra = 17
 pinScorrevole = 27
@@ -23,9 +31,24 @@ def getOpposite(val):
 
 while i>0:
     sbarra.set_values([getOpposite(sbarra.get_values()[0])])
-    print(getOpposite(sbarra.get_values()))
+    print(getOpposite(sbarra.get_values()[0]))
     scorrevole.set_values([getOpposite(scorrevole.get_values()[0])])
     portone.set_values([getOpposite(portone.get_values()[0])])
     i = i-1
     time.sleep(1)
 
+class Sbarra(Resource):
+    def get(self):
+        sbarra.set_values([getOpposite(sbarra.get_values()[0])])
+        return {'oppened': "yes"}
+
+api.add_resource(Sbarra, '/sbarra')
+# api.add_resource(PollutionResource, '/pollution')
+# api.add_resource(GasResource, '/gas')
+
+
+if __name__ == '__main__':
+    print("Starting process...")
+
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)
