@@ -1,7 +1,7 @@
 FROM fedora:latest
 
 # imposta working directory
-WORKDIR /code
+#WORKDIR /code
 
 # copy the dependencies file to the working directory
 #COPY requirements.txt .
