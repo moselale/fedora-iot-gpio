@@ -36,10 +36,13 @@ def getOpposite(val):
 #     i = i-1
 #     time.sleep(1)
 
+sbarraRequested = False
+
 class Sbarra(Resource):
     sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
     def get(self):
-        sbarra.set_values([getOpposite(sbarra.get_values()[0])])
+        if (not sbarraRequested)
+            sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
 api.add_resource(Sbarra, '/sbarra')
