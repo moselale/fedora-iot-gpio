@@ -36,7 +36,6 @@ def getOpposite(val):
 #     i = i-1
 #     time.sleep(1)
 
-sbarraRequested = False
 
 class Sbarra(Resource):
     def get(self):
@@ -54,5 +53,6 @@ print(__name__)
 if __name__ == '__main__':
     print("Starting process...")
 
+    sbarraRequested = False
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host="0.0.0.0", port=port)
