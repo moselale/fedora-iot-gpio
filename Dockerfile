@@ -7,6 +7,7 @@ WORKDIR /code
 #COPY requirements.txt .
 
 # install dependencies
+RUN dnf -y update
 RUN dnf -y install libgpiod-utils python3-libgpiod
 
 # copy the dependencies file to the working directory
