@@ -1,7 +1,7 @@
 FROM fedora:latest
 
 # imposta working directory
-#WORKDIR /code
+WORKDIR /code
 
 # copy the dependencies file to the working directory
 #COPY requirements.txt .
@@ -10,11 +10,10 @@ FROM fedora:latest
 RUN dnf -y install libgpiod-utils python3-libgpiod
 
 # copy the dependencies file to the working directory
-# COPY requirements.txt .
+COPY requirements.txt .
 
 # install dependencies
-RUN pip install flask
-RUN pip install flask_restful
+RUN pip3 install -r requirements.txt
 
 # copia codice sorgente
 COPY src/ .
