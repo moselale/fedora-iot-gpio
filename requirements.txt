@@ -1,2 +1,2 @@
-flask
-flask_restful
+flask==1.1.1
+flask_restful==0.3.8
