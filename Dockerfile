@@ -9,8 +9,11 @@ WORKDIR /code
 # install dependencies
 RUN dnf -y install libgpiod-utils python3-libgpiod
 
-#install python libraries
-RUN pip install flask flask_restful
+# copy the dependencies file to the working directory
+COPY requirements.txt .
+
+# install dependencies
+RUN pip install -r requirements.txt
 
 # copia codice sorgente
 COPY src/ .

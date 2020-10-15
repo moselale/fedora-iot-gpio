@@ -1,4 +1,2 @@
-libgpiod-utils
-python3-libgpiod
 flask
 flask_restful
