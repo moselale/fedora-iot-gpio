@@ -1,4 +1,5 @@
 import gpiod
+import time
 
 pinSbarra = 17
 pinScorrevole = 27
@@ -17,5 +18,7 @@ while i>0:
     sbarra.set_values([not sbarra.get_values()])
     scorrevole.set_values([not scorrevole.get_values()])
     portone.set_values([not portone.get_values()])
-    --i
+    print("i: " , i)
+    i = i-1
+    time.sleep(1)
 
