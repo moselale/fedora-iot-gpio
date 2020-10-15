@@ -16,7 +16,6 @@ pinPortone = 22
 chip = gpiod.Chip('gpiochip0')
 
 sbarra = chip.get_lines([17])
-sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
 # scorrevole = chip.get_lines([27])
 # scorrevole.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
 # portone = chip.get_lines([22])
@@ -39,6 +38,7 @@ def getOpposite(val):
 
 class Sbarra(Resource):
     def get(self):
+        sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
