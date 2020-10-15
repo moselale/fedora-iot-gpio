@@ -22,10 +22,10 @@ def getOpposite(val):
         return 0
 
 while i>0:
-    sbarra.set_values([getOpposite(sbarra.get_values())])
+    sbarra.set_values([getOpposite(sbarra.get_values()[0])])
     print(getOpposite(sbarra.get_values()))
-    scorrevole.set_values([getOpposite(scorrevole.get_values())])
-    portone.set_values([getOpposite(portone.get_values())])
+    scorrevole.set_values([getOpposite(scorrevole.get_values()[0])])
+    portone.set_values([getOpposite(portone.get_values()[0])])
     i = i-1
     time.sleep(1)
 
