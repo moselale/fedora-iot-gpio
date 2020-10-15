@@ -43,6 +43,7 @@ class Sbarra(Resource):
     def get(self):
         if (not sbarraRequested)
             sbarra.set_values([getOpposite(sbarra.get_values()[0])])
+            sbarraRequested = True
         return {'oppened': "yes"}
 
 api.add_resource(Sbarra, '/sbarra')
