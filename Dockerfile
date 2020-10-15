@@ -13,7 +13,7 @@ RUN dnf -y install libgpiod-utils python3-libgpiod
 COPY requirements.txt .
 
 # install dependencies
-RUN pip3 install -r requirements.txt
+# RUN pip3 install -r requirements.txt
 
 # copia codice sorgente
 COPY src/ .
