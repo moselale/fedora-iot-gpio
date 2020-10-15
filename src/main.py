@@ -41,7 +41,7 @@ sbarraRequested = False
 class Sbarra(Resource):
     sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
     def get(self):
-        if (not sbarraRequested)
+        if not sbarraRequested:
             sbarra.set_values([getOpposite(sbarra.get_values()[0])])
             sbarraRequested = True
         return {'oppened': "yes"}
