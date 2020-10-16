@@ -39,7 +39,9 @@ class Sbarra(Resource):
     def get(self):
         # if not sbarraRequested:
         #     sbarraRequested = True
-        sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+        con = 'foo' + pinSbarra
+        pinSbarra = pinSbarra + 1
+        sbarra.request(consumer=con, type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 

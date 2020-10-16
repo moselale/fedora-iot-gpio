@@ -1,6 +1,5 @@
 import time
 
-value = 0
 i = 4
 
 def getOpposite(val):
@@ -9,12 +8,9 @@ def getOpposite(val):
     else:
         return 0
 
-while i>0:
-    i = i-1
-    print(i)
-    print(value)
-    value = getOpposite(value)
-    print(value)
-
+while i<8:
+    i = i+1
+    strin = 'strin + ' + str(i)
+    print(strin)
     time.sleep(1)
 
