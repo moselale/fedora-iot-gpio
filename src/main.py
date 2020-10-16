@@ -39,6 +39,7 @@ class Sbarra(Resource):
     def get(self):
         # if not sbarraRequested:
         #     sbarraRequested = True
+        sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
@@ -52,7 +53,6 @@ if __name__ == '__main__':
     
     chip = gpiod.Chip('gpiochip0')
     sbarra = chip.get_lines([17])
-    sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
     # sbarraRequested = False
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host="0.0.0.0", port=port)
