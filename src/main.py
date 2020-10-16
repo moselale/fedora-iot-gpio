@@ -15,7 +15,6 @@ pinPortone = 22
 
 chip = gpiod.Chip('gpiochip0')
 
-sbarra = chip.get_lines([17])
 # scorrevole = chip.get_lines([27])
 # scorrevole.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
 # portone = chip.get_lines([22])
@@ -52,6 +51,7 @@ print(__name__)
 if __name__ == '__main__':
     print("Starting process...")
     
+    sbarra = chip.get_lines([17])
     sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
     # sbarraRequested = False
     port = int(os.environ.get("PORT", 5000))
