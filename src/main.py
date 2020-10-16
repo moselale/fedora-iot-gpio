@@ -1,6 +1,6 @@
 import os
 
-from gpiod import Chip, line_request
+from gpiod import Chip, Line_request
 import time
 from flask import Flask
 from flask_restful import Resource, Api
