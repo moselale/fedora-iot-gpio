@@ -43,7 +43,10 @@ class Sbarra(Resource):
             sbarra.request(consumer='on', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
         except:
             print()
-        sbarra.set_values([getOpposite(sbarra.get_values()[0])])
+    #    sbarra.set_values([getOpposite(sbarra.get_values()[0])])
+        sbarra.set_values([0])
+        time.sleep(0.5)
+        sbarra.set_values([1])
         return {'oppened': "yes"}
 
 api.add_resource(Sbarra, '/sbarra')
