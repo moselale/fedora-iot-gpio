@@ -39,7 +39,7 @@ class Sbarra(Resource):
     def get(self):
         # if not sbarraRequested:
         #     sbarraRequested = True
-        sbarra.request(consumer='on', type=line_request.DIRECTION_OUTPUT, default_vals=[ 1 ])
+        sbarra.request(consumer='on', type=Line_request.DIRECTION_OUTPUT, default_vals=[ 1 ])
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
