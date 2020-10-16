@@ -1,6 +1,6 @@
 import os
 
-import gpiod
+from gpiod import chip, line_request
 import time
 from flask import Flask
 from flask_restful import Resource, Api
@@ -39,9 +39,7 @@ class Sbarra(Resource):
     def get(self):
         # if not sbarraRequested:
         #     sbarraRequested = True
-        con = 'foo' + pinSbarra
-        pinSbarra = pinSbarra + 1
-        sbarra.request(consumer=con, type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+        sbarra.request(consumer='on', type=line_request.DIRECTION_OUTPUT, default_vals=[ 1 ])
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
@@ -53,8 +51,8 @@ print(__name__)
 if __name__ == '__main__':
     print("Starting process...")
     
-    chip = gpiod.Chip('gpiochip0')
-    sbarra = chip.get_lines([17])
+    chi = chip('gpiochip0')
+    sbarra = chi.get_lines([17])
     # sbarraRequested = False
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host="0.0.0.0", port=port)
