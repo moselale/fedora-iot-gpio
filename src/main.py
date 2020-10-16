@@ -45,7 +45,7 @@ class Sbarra(Resource):
             print()
     #    sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         sbarra.set_values([0])
-        time.sleep(0.5)
+        time.sleep(4)
         sbarra.set_values([1])
         return {'oppened': "yes"}
 
