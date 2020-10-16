@@ -27,7 +27,7 @@ class Sbarra(Resource):
             print()
     #    sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         sbarra.set_values([0])
-        time.sleep(4)
+        time.sleep(0.5)
         sbarra.set_values([1])
         return {'sbarra': "yes"}
 
@@ -39,7 +39,7 @@ class Scorrevole(Resource):
             print()
     #    scorrevole.set_values([getOpposite(scorrevole.get_values()[0])])
         scorrevole.set_values([0])
-        time.sleep(4)
+        time.sleep(0.5)
         scorrevole.set_values([1])
         return {'scorrevole': "yes"}
 
@@ -51,7 +51,7 @@ class Portone(Resource):
             print()
     #    portone.set_values([getOpposite(portone.get_values()[0])])
         portone.set_values([0])
-        time.sleep(4)
+        time.sleep(0.5)
         portone.set_values([1])
         return {'portone': "yes"}
 
@@ -66,7 +66,7 @@ if __name__ == '__main__':
     print("Starting process...")
     
     chip = gpiod.Chip('gpiochip0')
-    
+
     sbarra = chip.get_lines([17])
     scorrevole = chip.get_lines([27])
     portone = chip.get_lines([22])
