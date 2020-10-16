@@ -39,9 +39,8 @@ def getOpposite(val):
 
 class Sbarra(Resource):
     def get(self):
-        if not sbarraRequested:
-            sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
-            sbarraRequested = True
+        # if not sbarraRequested:
+        #     sbarraRequested = True
         sbarra.set_values([getOpposite(sbarra.get_values()[0])])
         return {'oppened': "yes"}
 
@@ -52,7 +51,8 @@ api.add_resource(Sbarra, '/sbarra')
 print(__name__)
 if __name__ == '__main__':
     print("Starting process...")
-
-    sbarraRequested = False
+    
+    sbarra.request(consumer='foobar', type=gpiod.LINE_REQ_DIR_OUT, default_vals=[ 1 ])
+    # sbarraRequested = False
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host="0.0.0.0", port=port)
