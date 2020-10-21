@@ -67,9 +67,9 @@ if __name__ == '__main__':
     
     chip = gpiod.Chip('gpiochip0')
 
-    sbarra = chip.get_lines([17])
-    scorrevole = chip.get_lines([27])
-    portone = chip.get_lines([22])
+    sbarra = chip.get_lines([14])
+    scorrevole = chip.get_lines([15])
+    portone = chip.get_lines([23])
 
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host="0.0.0.0", port=port)
